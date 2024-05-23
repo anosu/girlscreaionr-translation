@@ -1,2 +1,7 @@
 # GC-Translation
-Simplified Chinese Translation for Girlscreation R
+
+少女艺术绮谭的简中翻译
+
+使用Sakura 0.9 + GalTransl
+
+不完全校正
