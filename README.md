@@ -5,3 +5,5 @@
 使用Sakura 0.9 + GalTransl
 
 不完全校正
+
+插件请看[https://github.com/anosu/GCMod]（https://github.com/anosu/GCMod）
