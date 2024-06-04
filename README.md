@@ -6,4 +6,4 @@
 
 不完全校正
 
-插件请看[https://github.com/anosu/GCMod]（https://github.com/anosu/GCMod）
+插件请看[GCMod](https://github.com/anosu/GCMod)
