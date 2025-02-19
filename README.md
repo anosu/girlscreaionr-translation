@@ -1,4 +1,4 @@
-# GC-Translation
+# GirlsCreaionR Translation
 
 少女艺术绮谭的简中翻译
 
