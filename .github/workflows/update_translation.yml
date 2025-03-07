@@ -1,0 +1,60 @@
+name: Update Translation
+
+on:
+  workflow_dispatch:
+#   schedule:
+#     - cron: '40 9 * * *'
+
+jobs:
+  update-translation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Record time
+        run: date '+%Y-%m-%d %H:%M:%S'
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch GalTransl
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git clone https://gitclone.com/github.com/anosu/GalTransl.git
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+
+      - name: Update original files
+        run: python scripts/run.py ${{ secrets.GALTRANSL_TOKEN }} ${{ env.GALTRANSL_ENDPOINT }} ${{ env.GALTRANSL_MODEL_NAME }}
+
+      - name: Run GalTransl
+        run: python GalTransl/main.py ${{ secrets.GALTRANSL_TOKEN }} ${{ env.GALTRANSL_ENDPOINT }} ${{ env.GALTRANSL_MODEL_NAME }}
+
+      - name: Merge translated files
+        run: python scripts/merge.py
+
+      - name: Commit
+        id: commit
+        run: |
+          git add .
+          if git diff-index --quiet HEAD --; then
+            echo "No changes to commit."
+            echo "diff=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Auto-update translation"
+            echo "diff=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Push
+        if: steps.commit.outputs.diff == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
