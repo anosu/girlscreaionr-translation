@@ -44,5 +44,5 @@ class Merger:
 if __name__ == '__main__':
     Merger(
         translation_dir='.',
-        cache_dir='GalTransl/transl_cache'
+        cache_dir='GalTransl/sampleProject/transl_cache'
     ).run()
