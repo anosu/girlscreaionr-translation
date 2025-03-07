@@ -14,7 +14,7 @@
 
 - https://girlscreation.ntr.best
 
-请填写在插件配置文件`config.json`中的`translation_api`字段
+请填写在插件配置文件`GCMod.json`中的`translation_api`字段
 
 插件请看[GCMod](https://github.com/anosu/GCMod)
 
