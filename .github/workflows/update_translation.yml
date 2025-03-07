@@ -33,10 +33,10 @@ jobs:
           pip install -r scripts/requirements.txt
 
       - name: Update original files
-        run: python scripts/run.py ${{ secrets.GALTRANSL_TOKEN }} ${{ env.GALTRANSL_ENDPOINT }} ${{ env.GALTRANSL_MODEL_NAME }}
+        run: python scripts/run.py ${{ secrets.GALTRANSL_TOKEN }} ${{ vars.GALTRANSL_ENDPOINT }} ${{ vars.GALTRANSL_MODEL_NAME }}
 
       - name: Run GalTransl
-        run: python GalTransl/main.py ${{ secrets.GALTRANSL_TOKEN }} ${{ env.GALTRANSL_ENDPOINT }} ${{ env.GALTRANSL_MODEL_NAME }}
+        run: python GalTransl/main.py ${{ secrets.GALTRANSL_TOKEN }} ${{ vars.GALTRANSL_ENDPOINT }} ${{ vars.GALTRANSL_MODEL_NAME }}
 
       - name: Merge translated files
         run: python scripts/merge.py
