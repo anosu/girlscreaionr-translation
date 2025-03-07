@@ -37,7 +37,7 @@ jobs:
         run: python scripts/run.py ${{ secrets.GALTRANSL_TOKEN }} ${{ vars.GALTRANSL_ENDPOINT }} ${{ vars.GALTRANSL_MODEL_NAME }}
 
       - name: Run GalTransl
-        run: python GalTransl/main.py ${{ secrets.GALTRANSL_TOKEN }} ${{ vars.GALTRANSL_ENDPOINT }} ${{ vars.GALTRANSL_MODEL_NAME }}
+        run: python main.py ${{ secrets.GALTRANSL_TOKEN }} ${{ vars.GALTRANSL_ENDPOINT }} ${{ vars.GALTRANSL_MODEL_NAME }}
         working-directory: ./GalTransl
 
       - name: Merge translated files
