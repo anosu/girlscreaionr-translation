@@ -22,7 +22,7 @@ Object.entries(routers).forEach(([path, router]) => {
 })
 
 app.all('/', (req, res) => {
-    res.send('GirlsCreationR Translation')
+    res.redirect('https://github.com/anosu/girlscreaionr-translation')
 })
 
 Array.from(['dicts', 'names', 'novels', 'words']).forEach(cls => {
