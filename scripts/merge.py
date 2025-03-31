@@ -31,9 +31,12 @@ class Merger:
             write_json(self.translation_dir / f'novels/{novel_id}/zh_Hans.json', translation)
 
     def merge_words(self):
+        cache_path = self.cache_dir / 'words.json'
+        if not cache_path.exists():
+            return
         words_path = self.translation_dir / 'words/zh_Hans.json'
         words: dict[str, str] = read_json(words_path)
-        cache: list[dict[str, int | str]] = read_json(self.cache_dir / 'words.json')
+        cache: list[dict[str, int | str]] = read_json(cache_path)
         words.update({
             msg['pre_jp']: msg['post_zh_preview']
             for msg in cache
