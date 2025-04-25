@@ -2,8 +2,8 @@ name: Update Translation
 
 on:
   workflow_dispatch:
-#   schedule:
-#     - cron: '40 9 * * *'
+  schedule:
+    - cron: '0 5 * * *'
 
 jobs:
   update-translation:
@@ -36,14 +36,26 @@ jobs:
       - name: Update original files
         run: python scripts/run.py ${{ secrets.GALTRANSL_TOKEN }} ${{ vars.GALTRANSL_ENDPOINT }} ${{ vars.GALTRANSL_MODEL_NAME }}
 
+      - name: Check input files
+        id: check
+        run: |
+          if [ -z "$(ls -A GalTransl/sampleProject/gt_input)" ]; then
+            echo "update=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "update=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Copy project dictionary
+        if: steps.check.outputs.update == 'true'
         run: cp 项目GPT字典.txt GalTransl/sampleProject/项目GPT字典.txt
 
       - name: Run GalTransl
+        if: steps.check.outputs.update == 'true'
         run: python main.py ${{ secrets.GALTRANSL_TOKEN }} ${{ vars.GALTRANSL_ENDPOINT }} ${{ vars.GALTRANSL_MODEL_NAME }}
         working-directory: ./GalTransl
 
       - name: Merge translated files
+        if: steps.check.outputs.update == 'true'
         run: python scripts/merge.py
 
       - name: Commit
