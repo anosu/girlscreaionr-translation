@@ -39,7 +39,9 @@ jobs:
       - name: Check input files
         id: check
         run: |
-          if [ -z "$(ls -A GalTransl/sampleProject/gt_input)" ]; then
+          DIR="GalTransl/sampleProject/gt_input"
+          if [ ! -d "$DIR" ] || [ -z "$(ls -A "$DIR")" ]; then
+            echo "No update"
             echo "update=false" >> "$GITHUB_OUTPUT"
           else
             echo "update=true" >> "$GITHUB_OUTPUT"
