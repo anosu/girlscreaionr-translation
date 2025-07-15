@@ -7,6 +7,7 @@ const routers = {}
 
 const app = express()
 const PORT = process.env.PORT || 12315
+const REPO_URL = 'https://raw.githubusercontent.com/anosu/girlscreaionr-translation'
 
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url}`)
@@ -27,8 +28,9 @@ app.all('/', (req, res) => {
 
 Array.from(['dicts', 'names', 'novels', 'words']).forEach(cls => {
     app.get(`/${cls}/*`, (req, res) => {
-        const filePath = path.join(__dirname, `${cls}/${req.params[0]}`)
-        res.sendFile(filePath, err => err && res.sendStatus(404))
+        // const filePath = path.join(__dirname, `${cls}/${req.params[0]}`)
+        // res.sendFile(filePath, err => err && res.sendStatus(404))
+        res.redirect(`${REPO_URL}/refs/heads/main/${cls}/${req.params[0]}`)
     })
 })
 
