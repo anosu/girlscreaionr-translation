@@ -253,4 +253,13 @@
 遊んでいる子供	玩耍的孩子
 被災した男性	受灾男性
 住民の女性	居民女性
-オルタ	奥尔塔	It means alternative, and is also used as a nickname for someone's other personality.
+オルタ	奥尔塔	It means alternative, and is also used as a nickname for someone's other personality.団体のリーダー	团体领袖
+美術学校校長	美术学校校长
+大貴族	大贵族
+花火師	烟花师
+ファンの子供	粉丝的孩子
+生徒たち	学生们
+デモ団体	示威团体
+団体のメンバー	团体成员
+アテネス市長	雅典斯市长
+デモ参加者	示威参加者
