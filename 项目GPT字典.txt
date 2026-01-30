@@ -285,4 +285,6 @@
 クレプスキュルたち	克莱普斯库尔们
 若い議員	年轻议员
 ルノワール	雷诺阿
-ルノ	雷诺	Character name, abbreviation of ルノワール
+ルノ	雷诺	Character name, abbreviation of ルノワール花屋の店主	花店店主
+走ってきた少年	跑来的少年
+大柄の男	魁梧男子
