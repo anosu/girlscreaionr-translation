@@ -26,6 +26,10 @@ app.all('/', (req, res) => {
     res.redirect('https://github.com/anosu/girlscreaionr-translation')
 })
 
+app.get('/manifest.json', (req, res) => {
+    res.redirect(`${REPO_URL}/refs/heads/main/manifest.json`)
+})
+
 Array.from(['dicts', 'names', 'novels', 'words']).forEach(cls => {
     app.get(`/${cls}/*`, (req, res) => {
         // const filePath = path.join(__dirname, `${cls}/${req.params[0]}`)
