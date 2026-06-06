@@ -6,11 +6,11 @@ trans_dir = Path(".")
 language = "zh_Hans"
 
 
-def get_hash(obj) -> str:
-    canonical_str = json.dumps(
-        obj, sort_keys=True, ensure_ascii=False, separators=(",", ":")
-    )
-    return hashlib.md5(canonical_str.encode()).hexdigest()
+def get_hash(obj: dict[str, str]) -> str:
+    md5 = hashlib.md5()
+    for key in sorted(obj.keys()):
+        md5.update(f"{key}\x00{obj[key]}\x00".encode())
+    return md5.hexdigest()
 
 
 def hash_file(path: Path) -> str:
