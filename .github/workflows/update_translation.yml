@@ -60,6 +60,10 @@ jobs:
         if: steps.check.outputs.update == 'true'
         run: python scripts/merge.py
 
+      - name: Build manifest
+        if: steps.check.outputs.update == 'true'
+        run: python scripts/build.py
+
       - name: Commit
         id: commit
         run: |

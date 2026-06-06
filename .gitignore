@@ -1,53 +1,76 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # Dependencies
 /node_modules
 /.pnp
 .pnp.js
 
-# Testing
+# Build outputs
+/build
+/dist
+/scripts/agent/dist
+
+# Python cache and compiled files
+__pycache__/
+*.py[codz]
+*.pyc
+
+# Python packaging
+*.egg-info/
+*.egg
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+
+# Virtual environments
+.venv
+venv/
+env/
+ENV/
+.python-version
+
+# Testing and coverage
 /coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
 
-# Production
-build
-dist
-
-# Misc
+# IDE and editor files
 .DS_Store
-*.pem
+.vscode/
+.idea/
 
-# Debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Logs and databases
+*.log
+*.pid
+db.sqlite3
 
-# Local ENV files
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# Environment files
+.env
+.env.*
+!.env.example
 
-# Vercel
-.vercel
-
-# Turborepo
-.turbo
-
-# typescript
+# TypeScript
 *.tsbuildinfo
 
-# Exclude
+# Misc temporary files
+*.pem
+tempCodeRunnerFile.py
+desktop.ini
+
+# Project specific
 temp
 output
 exclude
 decompile
-desktop.ini
+.turbo
+.vercel
 
-# PyCache
-scripts/__pycache__
-scripts/util/__pycache__
-
-/scripts/agent/node_modules
-/scripts/agent/dist
-
-GalTransl
+# GalTransl (specific to your project)
+GalTransl/
